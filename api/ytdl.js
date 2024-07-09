@@ -27,6 +27,8 @@ app.get('/api/ytdl/dlaudio', async (req, res) => {
 
 const server = createServer(app);
 
-module.exports = (req, res) => {
-  server.emit('request', req, res);
-};
+// Tambahkan ini untuk menjalankan server pada port tertentu
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
